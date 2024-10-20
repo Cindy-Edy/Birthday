@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>gallery</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    section {
+        width: 80%;
+        margin: 3rem auto;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 3rem;
+        text-transform: capitalize;
+    }
+
+    .images-gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .column img {
+        width: 100%;
+    }
+
+    .column {
+        width: 33.333333%;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .column div {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .image-small {
+        width: 250px;
+        /* Ganti ukuran sesuai kebutuhan */
+        height: auto;
+        /* Menjaga proporsi gambar */
+        display: none;
+        /* Awalnya gambar disembunyikan */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Menempatkan di tengah secara vertikal dan horizontal */
+    }
+
+    /* Media query untuk layar lebih kecil seperti Android */
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .column {
+            width: 100%;
+        }
+
+        .images-gallery {
+            gap: 5px;
+        }
+
+        .column img {
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .column div {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        .column img {
+            border-radius: 4px;
+        }
+    }
+</style>
+
+<body>
+    <section>
+        <h1>gallery</h1>
+
+        <a href="index4.html"><img id="delayedImage" src="mawar.png" alt="Delayed Image" class="image-small"></a>
+
+        <div class="images-gallery">
+            <div class="column">
+                <div>
+                    <img src="./images/1.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/2.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/3.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/4.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/5.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/6.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/7.jpg" alt="img">
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <img src="./images/8.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/9.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/10.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/11.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/12.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/13.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/14.jpg" alt="img">
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <img src="./images/15.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/16.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/17.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/18.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/19.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/20.jpg" alt="img">
+                </div>
+                <div>
+                    <img src="./images/21.jpg" alt="img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Musik Latar Belakang -->
+    <audio id="background-music" autoplay loop>
+        <source src="musik.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Tombol Kontrol Musik -->
+    <div style="position: fixed; bottom: 25px; right: 25px; width: 50%;">
+        <button onclick="toggleMusic()">🔊</button>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan gambar mawar setelah 3 detik
+        setTimeout(function () {
+            document.getElementById('delayedImage').style.display = 'block';
+        }, 30000); // 30000 milidetik = 30 detik
+
+        // Fungsi untuk kontrol musik
+        var music = document.getElementById("background-music");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+</body>
+
+</html>

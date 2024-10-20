@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        /* General Styling */
+        body {
+            background-image: url('https://3.bp.blogspot.com/-OezgVaJiLLQ/V76rRnST6dI/AAAAAAAABa4/UeBSswBG6tIswfMrUgtUQs4DhTBTRpuxACLcB/s1600/Animasi%2BGambar%2BBunga%2BSakura%2BBerrguguran%2BYang%2BBergerak.gif');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #2c3e50;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive iframe styling */
+        iframe {
+            width: 100%;
+            max-width: 853px;
+            aspect-ratio: 16/9;
+            border: none;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        iframe:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-small {
+        width: 250px;
+        /* Ganti ukuran sesuai kebutuhan */
+        height: auto;
+        /* Menjaga proporsi gambar */
+        display: none;
+        /* Awalnya gambar disembunyikan */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Menempatkan di tengah secara vertikal dan horizontal */
+    }
+
+        /* Style for mobile (Android and small screens) */
+        @media only screen and (max-width: 768px) {
+            body {
+                padding: 20px;
+                font-size: 0.9em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            iframe {
+                max-width: 100%;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Video Puisi</h1>
+    <a href="index3.html"><img id="delayedImage" src="mawar.png" alt="Delayed Image" class="image-small"></a>
+
+    <iframe src="https://www.youtube.com/embed/EHx7uLJhQHI" title="SELAMAT ULANG TAHUN | MUSIKALISASI PUISI | story wa selamat ulang tahun" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <iframe src="https://www.youtube.com/embed/haMAhJe2LXs" title="PUISI ROMANTIS BIKIN BAPER | Aku cuma ingin bersamamu ❤️" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <iframe src="https://www.youtube.com/embed/t3vNDqtLdIw" title="Romantis banget.. inilah kata-kata romantis buat pacar yang tersayang" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <iframe src="https://www.youtube.com/embed/YjwloyG3DGM" title="Ucapan Selamat Ulang Tahun untuk Pacar || Musikalisasi Puisi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+
+<script>
+     // Fungsi untuk menampilkan gambar mawar setelah 3 detik
+     setTimeout(function() {
+            document.getElementById('delayedImage').style.display = 'block';
+        }, 18000); // 18000 milidetik =  3 menit
+</script>
+
+</html>

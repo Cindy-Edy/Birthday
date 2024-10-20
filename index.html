@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kejutan untuk Kekasihku!</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            /* Latar belakang hitam */
+            color: #00ff00;
+            /* Teks hijau */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+            background-image: url('https://i.gifer.com/Xk3n.gif');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hacker-text {
+            font-size: 1.4rem;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            display: none;
+            font-weight: bold;
+            text-shadow: #ff000d;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 1.4rem;
+            color: #31f809;
+            display: none;
+            text-align: center;
+            text-shadow: #ff0000;
+            font-weight: bold;
+        }
+
+        #heart {
+            color: red;
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        .love-animation {
+            position: absolute;
+            top: -50px;
+            color: red;
+            font-size: 1.5rem;
+            animation: love-fall 5s ease-in forwards;
+        }
+
+        .matrix-code {
+            position: absolute;
+            font-weight: bold;
+            top: -50px;
+            left: 0;
+            color: #00ff00;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            animation: matrix-fall 5s linear infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .blinking-cursor {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #00ff00;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes love-fall {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        #love-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .image-small {
+                width: 250px;/* Ganti ukuran sesuai kebutuhan */
+                height: auto;/* Menjaga proporsi gambar */                
+                display: none;/* Awalnya gambar disembunyikan */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);/* Menempatkan di tengah secara vertikal dan horizontal */
+            }
+
+        @media only screen and (max-width: 600px) {
+            .message {
+                font-size: 1.4rem;
+            }
+
+            .hacker-text {
+                font-size: 1.4rem;
+            }
+
+            #love-button {
+                font-size: 1.4rem;
+                padding: 10px 20px;
+            }
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="hacker-text" id="hacker-text">
+        Memulai kejutan untukmu...<br>
+        Meretas sistem...<br>
+        Akses diberikan!<br>
+        Menjalankan kode...<br>
+        Memuat pesan...<br>
+        Kejutan akan dimulai dalam ...<br>
+        3...<br>
+        2...<br>
+        1...
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg"> <!-- Ganti dengan file musik Anda -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="message" id="message">
+        <p>Selamat Ulang Tahun,</br> Cinta & Sayangku!</p>
+        <p>Kamu adalah cahaya dalam hidupku,<br>detak dalam jantungku,<br>dan alasan senyumku setiap hari Karna Kamu.
+        </p>
+        <p>Semoga harimu seistimewa dirimu untukku.<br>Aku mencintaimu sampai ke ujung dunia!<br><span
+                id="heart">&hearts;</span></p>
+        <p>Setiap detik bersamamu adalah anugerah,<br>Kamu adalah bintang yang bersinar dalam malamku.</p>
+        <p>Aku akan selalu berada di sisimu, selamanya.</p>
+    </div>
+    <a href="index1.html"><img id="delayedImage" src="mawar.png" alt="Delayed Image" class="image-small"></a>
+
+    <button id="love-button" onclick="showLoveAnimation()">Music💖Love</button>
+    
+    <div class="blinking-cursor" id="cursor">|</div>
+    
+    <script>
+        const hackerText = document.getElementById('hacker-text');
+        const message = document.getElementById('message');
+        const heart = document.getElementById('heart');
+        const cursor = document.getElementById('cursor');
+        const loveButton = document.getElementById('love-button');
+        const backgroundMusic = document.getElementById('background-music');
+
+        let hackerMessages = [
+            "Memulai kejutan untukmu...\n",
+            "Meretas sistem...\n",
+            "Akses diberikan!\n",
+            "Menjalankan kode...\n",
+            "Memuat pesan...\n",
+            "Kejutan akan dimulai dalam...\n",
+            "3...\n",
+            "2...\n",
+            "1...\n"
+        ];
+        let i = 0;
+        let text = '';
+
+        function typeHackerText() {
+            if (i < hackerMessages.length) {
+                text += hackerMessages[i];
+                hackerText.textContent = text;
+                hackerText.style.display = 'block';
+                i++;
+                setTimeout(typeHackerText, 1000); // Timing
+            } else {
+                cursor.style.display = 'none';
+                setTimeout(showMessage, 1000);
+            }
+        }
+
+        function showMessage() {
+            hackerText.style.display = 'none';
+            message.style.display = 'block';
+            heart.style.display = 'inline';
+            loveButton.style.display = 'inline-block';
+        }
+
+        function showLoveAnimation() {
+            backgroundMusic.play(); // Mulai musik saat tombol diklik
+            for (let i = 0; i < 50; i++) {  // Meningkatkan jumlah hati
+                setTimeout(() => {
+                    let love = document.createElement('div');
+                    love.classList.add('love-animation');
+                    love.innerHTML = '&hearts;';
+                    love.style.left = Math.random() * 100 + 'vw';  // Posisi hati acak
+                    love.style.fontSize = Math.random() * 1.5 + 0.8 + 'rem';  // Ukuran hati acak
+                    love.style.animationDuration = Math.random() * 3 + 2 + 's';  // Durasi jatuh acak
+                    document.body.appendChild(love);
+
+                    setTimeout(() => {
+                        love.remove();
+                    }, 5000);  // Hapus hati setelah 5 detik
+                }, i * 300);  // Hati berjatuhan bergantian setiap 300ms
+            }
+        }
+
+        function generateMatrixCode() {
+            const symbols = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()'; // Karakter untuk kode
+            for (let i = 0; i < 30; i++) {  // Jumlah elemen kode
+                setTimeout(() => {
+                    let code = document.createElement('div');
+                    code.classList.add('matrix-code');
+                    code.innerHTML = symbols.charAt(Math.floor(Math.random() * symbols.length)); // Kode acak
+                    code.style.left = Math.random() * 100 + 'vw';  // Posisi kode acak
+                    code.style.animationDuration = Math.random() * 5 + 5 + 's';  // Durasi jatuh acak
+                    document.body.appendChild(code);
+
+                    setTimeout(() => {
+                        code.remove();
+                    }, 5000);  // Kode dihapus setelah 5 detik
+                }, i * 300);  // Elemen kode muncul bergantian setiap 300ms
+
+                // Fungsi untuk menampilkan gambar mawar setelah 3 detik
+                setTimeout(function () {
+                    document.getElementById('delayedImage').style.display = 'block';
+                }, 60000); // 60000 milidetik = 1 menit
+            }
+        }
+
+        setTimeout(typeHackerText, 1000);
+        setTimeout(generateMatrixCode, 1000);  // Mulai animasi kode setelah 1 detik
+
+    </script>
+
+</body>
+
+</html>

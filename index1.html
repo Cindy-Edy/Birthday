@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun Kekasih</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-shadow: 0 0 5px lime, 0 0 10px lime;
+            animation: blink 1s infinite;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .border {
+            border: 2px solid green;
+            padding: 0px;
+            margin: 0px auto;
+            width: 100%;
+            box-shadow: 0 0 20px green;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Tombol Love */
+        #playButton {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin-top: 20px;
+        }
+
+        /* Love jatuh */
+        .falling-love {
+            position: fixed;
+            top: -50px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: fall 5s infinite;
+        }
+
+        /* Membentuk hati */
+        .falling-love::before,
+        .falling-love::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .falling-love::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .falling-love::after {
+            left: 10px;
+            top: 0;
+        }
+
+        /* Animasi love jatuh */
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Random posisi dan kecepatan jatuh */
+        .falling-love:nth-child(1) {
+            left: 10%;
+            animation-duration: 4s;
+        }
+
+        .falling-love:nth-child(2) {
+            left: 20%;
+            animation-duration: 5s;
+        }
+
+        .falling-love:nth-child(3) {
+            left: 30%;
+            animation-duration: 6s;
+        }
+
+        .falling-love:nth-child(4) {
+            left: 40%;
+            animation-duration: 3s;
+        }
+
+        .falling-love:nth-child(5) {
+            left: 50%;
+            animation-duration: 4.5s;
+        }
+
+        .falling-love:nth-child(6) {
+            left: 60%;
+            animation-duration: 5.5s;
+        }
+
+        .falling-love:nth-child(7) {
+            left: 70%;
+            animation-duration: 6.5s;
+        }
+
+        .falling-love:nth-child(8) {
+            left: 80%;
+            animation-duration: 4s;
+        }
+
+        .falling-love:nth-child(9) {
+            left: 90%;
+            animation-duration: 6s;
+        }
+        .image-small {
+            width: 250px; /* Ganti ukuran sesuai kebutuhan */
+            height: auto; /* Menjaga proporsi gambar */
+            display: none; /* Awalnya gambar disembunyikan */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Menempatkan di tengah secara vertikal dan horizontal */
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="border">
+
+        <h1>HACKING INTO YOUR HEART...</h1>
+        <p><strong>Halo, Sayang!</strong></p>
+        <p>Selamat Ulang Tahun! 🎉</p>
+        <p>Hari ini, sistem kita merayakan kehadiranmu di dunia ini.</p>
+        <p>[STATUS] Cinta kita: <strong>ONLINE</strong></p>
+        <p>[LEVEL] Kebahagiaan: <strong>100%</strong></p>
+
+        <p>>> Dapatkan hadiah:</p>
+        <ul>
+            <li>Cinta tanpa batas</li>
+            <li>Kenangan manis yang tak terhitung</li>
+            <li>Janji setia hingga akhir</li>
+        </ul>
+
+        <p>Ti tiap detik bersamamu adalah kode yang indah dalam hidupku.</p>
+        <p>Mari kita hack masa depan bersama!</p>
+        <p>>> END OF MESSAGE</p>
+
+        <!-- Tombol untuk memutar musik -->
+        <button id="playButton">Music💖Love</button>
+        <a href="index2.html"><img id="delayedImage" src="mawar.png" alt="Delayed Image" class="image-small"></a>
+    </div>
+
+    <!-- Audio background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="musick.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Love jatuh -->
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+    <div class="falling-love"></div>
+
+    <script>
+        // Memainkan musik ketika tombol ditekan
+        const playButton = document.getElementById('playButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        playButton.addEventListener('click', function () {
+            backgroundMusic.play();
+            playButton.textContent = "💖 Music Playing...";  // Ganti teks tombol
+        });
+        // Fungsi untuk menampilkan gambar mawar setelah 3 detik
+        setTimeout(function() {
+            document.getElementById('delayedImage').style.display = 'block';
+        }, 60000); // 60000 milidetik = 1 menit
+    </script>
+
+</body>
+
+</html>
